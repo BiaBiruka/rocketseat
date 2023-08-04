@@ -25,7 +25,8 @@ body * {
 }
 
 #container {
-  width: 360px;
+  width: 100%;
+  max-width: 588px; /*Define que o container ocupará 100% da página, mas no máximo*/
   /* height: 712px; Não coloca height pra ser mais "fluido", o tamanho ir de acordo com os elementos*/
   /* margin: auto; Não entra top e bottom, só os lados. É possivel, no entando, definir a medida de todos os lados conforme mostra abaixo
   ordens:
