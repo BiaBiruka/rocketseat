@@ -16,6 +16,7 @@ body {
     Outra forma de deixar o código:
     background: url(./assets/bg-mobile-light.jpg) no-repeat top center/cover 
   */
+  height: 100vh; /*vh seria Viewport Height, ou seja, altura da parte visível da página*/
 }
 
 body * {
@@ -181,6 +182,19 @@ footer {
   --surface-hover-color: rgba(255, 255, 255, 0.05);
   --highlight-color: rgba(255, 255, 255, 0.2);
   --switch-img: url(./assets/MoonStars.svg);
+}
+
+/* Media queries para conseguir alterar a imagem de fundo (desktop ou mobile) de acordo com o tamanho do dispositivo. Elas só funcionam caso a linha <meta name="viewport" ... /> esteja no html */
+/* Tudo que começa com @ em CSS são rules*/
+@media (min-width: 700px) {
+  /* Nesse caso, quando a tela alcançar o tamanho mínimo de 700px, a ação descrita vai ocorrer -> substituir o background a partir do root e do .dark*/
+  :root {
+    --bg-url: url(./assets/bg-desktop-light.jpg);
+  }
+
+  .dark {
+    --bg-url: url(./assets/bg-desktop.jpg);
+  }
 }
 
 /*
