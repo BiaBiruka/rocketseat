@@ -36,13 +36,13 @@ body * {
   */
   /* margin: auto; */
   margin: 0px auto;
-  padding: 0 24px;
+  padding: 10px 24px;
 }
 
 /* foto de perfil */
 #profile {
   text-align: center;
-  padding: 18px 24px;
+  padding: 56px 24px 18px;
 }
 
 #profile img {
@@ -61,7 +61,7 @@ body * {
 /* switch */
 #switch {
   width: 64px;
-  margin: 0px auto;
+  margin: 10px auto;
   cursor: pointer;
   position: relative;
 }
@@ -103,7 +103,7 @@ ul {
   list-style: none; /* Remove a "bolinha" da lista */
   display: flex; /* Possui um comportamento diferente - primeiro ajeita todos os elementos da caixa (nesse caso os LI) como inline. Algumas propriedades de elementos filhos só podem ser usadas caso o elemento pai seja flex*/
   flex-direction: column; /*Por padrão flex-direction é ROW, ou seja, ajeita as coisas na mesma linha. Para colocar em colunas, precisa mudar a flex-direction*/
-  gap: 14px; /* Espaço entre os elementos */
+  gap: 16px; /* Espaço entre os elementos */
   padding: 24px 0px 0px;
 }
 
@@ -135,7 +135,7 @@ ul li a:hover {
 #social-links {
   display: flex;
   justify-content: center;
-  padding: 10px 0px 6px;
+  padding: 24px 0px;
   font-size: 40px;
 }
 
