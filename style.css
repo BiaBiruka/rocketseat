@@ -88,6 +88,10 @@ body * {
   transform: translateY(-50%) translateX(100%);
 }
 
+#switch input:hover::before {
+  outline: 8px solid var(--highlight-color);
+}
+
 #switch input {
   appearance: none;
   display: block;
@@ -205,4 +209,22 @@ Para fazer a animação do botão de switch, troquei o span por input type check
  -> quando está "checked" o botão muda de posição
 
 *** No vídeo do botão de toggle, a pessoa usa -webkit-appearance para não exibir a checkbox. Troquei por appearance pois a outra não é muito suportada/está em desuso.
+*/
+/* 
+Para fazer a animação ainda usando o button e span, seria utilizado um @keyframe, que serve para definir animações. seria feito da seguinte forma:
+@keyframe animacaoSwitch {
+  from {
+    right: 0;
+  }
+  to {
+    right: 50%;
+  }
+}
+
+Com esse código, tira tudo o que haveria no .dark #switch button e deixa da seguinte forma:
+.dark #switch button{
+  animation: animacaoSwitch 0.4s forwards;
+} -> O termo FORWARDS faz com que a animação não volte do começo quando acabar
+
+Precisa ser feito uma animação para ida e outra para volta, ou seja, outro @keyframe e o ANIMATION dentro do #switch button. Nesse caso não precisaria do right 0 pois o "ponto inicial" da animação já é ele.
 */
