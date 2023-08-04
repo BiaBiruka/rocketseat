@@ -1,0 +1,193 @@
+* {
+  margin: 0;
+  padding: 0;
+  /* define que todos os elementos da página não terão a margem e padding padrão do navegador. Fazemos isso para "resetar" as configurações padrão */
+  box-sizing: border-box; /* define que a medida do tamanho da caixa será a medida de sua borda. Ajuda quando precisamos, por exemplo, colocar um padding em uma caixa e isso desconfigura sua medida */
+}
+
+body {
+  background-image: var(
+    --bg-url
+  ); /* Link da imagem de fundo(caminho, no caso)*/
+  background-size: cover; /* ajusta o tamanho da imagem de acordo com o tamanho da tela (nesse caso, cobre tudo)*/
+  background-repeat: no-repeat; /* quando a imagem é menor, faz com que ela não repita */
+  background-position: top center; /* quando a imagem é menor, é possível alterar sua posição */
+  /* 
+    Outra forma de deixar o código:
+    background: url(./assets/bg-mobile-light.jpg) no-repeat top center/cover 
+  */
+}
+
+body * {
+  /* * sendo o seletor universal, informa que tudo o que estiver ali será aplicado em todos os elementos do body */
+  font-family: "Inter", sans-serif;
+  color: var(--text-color);
+}
+
+#container {
+  width: 360px;
+  /* height: 712px; Não coloca height pra ser mais "fluido", o tamanho ir de acordo com os elementos*/
+  /* margin: auto; Não entra top e bottom, só os lados. É possivel, no entando, definir a medida de todos os lados conforme mostra abaixo
+  ordens:
+    4 elementos -> top, right, bottom, left (relógio em sentido horário) 
+    3 elementos -> top, left/right, bottom
+    2 elementos -> top/bottom, left/right  
+  (isso também funciona com padding)
+  */
+  /* margin: auto; */
+  margin: 0px auto;
+  padding: 0 24px;
+}
+
+/* foto de perfil */
+#profile {
+  text-align: center;
+  padding: 18px 24px;
+}
+
+#profile img {
+  /*Busca da tag de imagem dentro da div de id PROFILE*/
+  width: 112px;
+  /* 
+  margin: auto, nesse caso, não funciona (a imagem não centraliza). Isso ocorre por conta do display. img é um elemento inline, então não consegue colocar margin: auto. Nós podemos tanto deixar o #profile centralizado ou colocar o #profile img como display: block e margin: auto, mas não é possível fazer as duas formas ao mesmo tempo.*/
+}
+
+#profile p {
+  font-weight: 500;
+  line-height: 24px;
+  margin-top: 8px;
+}
+
+/* switch */
+#switch {
+  width: 64px;
+  margin: 0px auto;
+  cursor: pointer;
+  position: relative;
+}
+
+#switch input::before {
+  content: "";
+  width: 32px;
+  height: 32px;
+  cursor: pointer;
+  background: white var(--switch-img) no-repeat center;
+  border: 0;
+  border-radius: 50%;
+  position: absolute;
+  z-index: 1;
+  top: 50%;
+  /* right: 0; */
+  transform: translateY(-50%) translateX(-3%);
+  transition: 0.5s ease transform;
+}
+
+#switch input:checked::before {
+  transform: translateY(-50%) translateX(100%);
+}
+
+#switch input {
+  appearance: none;
+  display: block;
+  width: 64px;
+  height: 24px;
+  background: var(--surface-color);
+  border: 1px solid var(--stroke-color);
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+  border-radius: 9999px;
+}
+
+/* lista de links */
+ul {
+  list-style: none; /* Remove a "bolinha" da lista */
+  display: flex; /* Possui um comportamento diferente - primeiro ajeita todos os elementos da caixa (nesse caso os LI) como inline. Algumas propriedades de elementos filhos só podem ser usadas caso o elemento pai seja flex*/
+  flex-direction: column; /*Por padrão flex-direction é ROW, ou seja, ajeita as coisas na mesma linha. Para colocar em colunas, precisa mudar a flex-direction*/
+  gap: 14px; /* Espaço entre os elementos */
+  padding: 24px 0px 0px;
+}
+
+ul li a {
+  /*altera os A dentro de LI dentro das UL*/
+  align-items: center;
+  justify-content: center;
+  display: flex;
+  padding: 16px 24px;
+  background: var(--surface-color);
+  border: 1px solid var(--stroke-color);
+  border-radius: 8px;
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(
+    4px
+  ); /*Alguns navegadores precisam do prefixo -webkit- para aceitar o backdrop-filter*/
+  text-decoration: none;
+  font-weight: 500;
+  transition: backgorund 0.2s; /*Serve para suavizar a animação de hover. Precisa colocar quais propriedades precisa transicionar e o tempo de duração da transição*/
+}
+
+ul li a:hover {
+  /* Hover é o comportamento do elemento quando o usuário passar o mouse por cima dele. Ele se encaixa na categoria de pseudo-selector*/
+  background-color: var(--surface-hover-color);
+  border: 1.5px solid var(--text-color);
+}
+
+/* redes sociais */
+#social-links {
+  display: flex;
+  justify-content: center;
+  padding: 10px 0px 6px;
+  font-size: 40px;
+}
+
+#social-links a {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 14px;
+  transition: background 0.2s;
+  border-radius: 50%;
+}
+
+#social-links a:hover {
+  background: var(--highlight-color);
+  padding: 14px;
+}
+
+footer {
+  padding: 0px 0px 15px;
+  text-align: center;
+  font-size: 14px;
+}
+
+/*Configurações necessárias para fazer light/dark mode*/
+:root {
+  /*Mexe na raiz do programa - define o "padrão"*/
+  --text-color: black; /*Toda vez que essa variavel for usada, a cor vai ser preta*/
+  --bg-url: url(./assets/bg-mobile-light.jpg);
+  --stroke-color: rgba(0, 0, 0, 0.5);
+  --surface-color: rgba(0, 0, 0, 0.1);
+  --surface-hover-color: rgba(0, 0, 0, 0.02);
+  --highlight-color: rgba(0, 0, 0, 0.1);
+  --switch-img: url(./assets/Sun.svg);
+}
+
+.dark {
+  /*altera as configurações da página caso esteja no dark mode*/
+  --text-color: white;
+  --bg-url: url(./assets/bg-mobile.jpg);
+  --stroke-color: rgba(255, 255, 255, 0.5);
+  --surface-color: rgba(255, 255, 255, 0.1);
+  --surface-hover-color: rgba(255, 255, 255, 0.05);
+  --highlight-color: rgba(255, 255, 255, 0.2);
+  --switch-img: url(./assets/MoonStars.svg);
+}
+
+/*
+Notas: 
+Para fazer a animação do botão de switch, troquei o span por input type checkbox (seria a "trilha" do botão).
+ -> o botão em si agora se tornou o checkbox "before"
+ -> a transição é feita apenas no lado do botão (usando transform)
+ -> quando está "checked" o botão muda de posição
+
+*** No vídeo do botão de toggle, a pessoa usa -webkit-appearance para não exibir a checkbox. Troquei por appearance pois a outra não é muito suportada/está em desuso.
+*/

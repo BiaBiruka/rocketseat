@@ -1,0 +1,81 @@
+<!-- No lugar de abrir o arquivo pela pasta, no vscode vai com o botão direito -> executar com live server. Ele simula um servidor na máquina e cria-->
+<!DOCTYPE html>
+<html lang="pt-br" class="">
+  <!-- root do html -->
+  <head>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500&display=swap"
+      rel="stylesheet"
+    />
+    <meta charset="UTF-8" />
+    <!-- conjunto de caracteres -->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <!-- deixa o site compatível com navegadores mais antigos -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- define que o tamanho do site será do tamanho do dispositivo (responsividade) -->
+    <title>Projeto rocketseat</title>
+    <link rel="stylesheet" href="style.css" />
+    <!-- rel= diz respeito a que aquele arquivo se refere (nesse caso, estilo da página)-->
+  </head>
+  <body>
+    <div id="container">
+      <!-- div é uma caixa genérica, html não aplica estilos padrão nela. Nesse caso, essa div possui todos os elementos do site -->
+      <div id="profile">
+        <img src="/assets/avatar-light.png" alt="Foto de perfil modo claro" />
+        <p>Adriana Chocolart's</p>
+      </div>
+      <div id="switch" onclick="toggleMode()">
+        <input type="checkbox" />
+      </div>
+      <ul>
+        <!-- lista "desordenada" dos botões -->
+        <!-- Ao se tratar de links, caso eu não queira que o usuário saia da página ao ser redirecionado, colocamos um "target", conforme mostra o botão abaixo-->
+        <li>
+          <a
+            href="https://api.whatsapp.com/send?phone=5519997020548"
+            target="_blank"
+            >Contato por Whatsapp</a
+          >
+        </li>
+        <li>
+          <a href="http://www.chocolarts.com.br/" target="_blank"
+            >Acessar Blog</a
+          >
+        </li>
+        <li><a onclick="openPDF()">Abrir cartão virtual</a></li>
+      </ul>
+      <div id="social-links">
+        <a href="https://www.facebook.com/adrianachocolates" target="_blank">
+          <ion-icon name="logo-facebook"></ion-icon>
+        </a>
+        <a
+          href="https://www.instagram.com/adrianachocolarts/?hl=pt-br"
+          target="_blank"
+        >
+          <ion-icon name="logo-instagram"></ion-icon>
+        </a>
+      </div>
+      <footer>
+        Página feita a partir do curso da
+        <a href="https://www.rocketseat.com.br/discover" target="_blank"
+          >Rocketseat</a
+        >. Acesse
+        <a href="https://br.linkedin.com/in/beatriz-parolin" target="_blank"
+          >aqui</a
+        >
+        o LinkedIn da desenvolvedora.
+      </footer>
+    </div>
+    <script
+      type="module"
+      src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"
+    ></script>
+    <script
+      nomodule
+      src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"
+    ></script>
+    <script src="./script.js"></script>
+  </body>
+</html>
